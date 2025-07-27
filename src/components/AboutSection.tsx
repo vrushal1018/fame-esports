@@ -2,7 +2,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Twitter, Instagram, Linkedin, Users, Trophy, Target, Award, Star, Zap } from "lucide-react";
 import player1 from "@/assets/player1.jpg";
-import harshThakkar from "@/assets/harshthakkar.jpg";
+import harshThakkar from "@/assets/HT.jpg";
 
 const AboutSection = () => {
   const team = [
