@@ -197,9 +197,9 @@ const AboutSection = () => {
         {/* CTA Section */}
         <div className="text-center mt-20">
           <div className="gaming-card p-12 max-w-4xl mx-auto">
-            <h3 className="text-3xl font-bold mb-6 gradient-text-primary">Join Our Journey</h3>
+            <h3 className="text-3xl font-bold mb-6 gradient-text-primary">Join our journey</h3>
             <p className="text-xl text-muted-foreground mb-8 text-balance">
-              Ready to be part of something extraordinary? Whether you're a player, fan, or partner, 
+              Ready to be part of something extraordinary? Whether you're a player or partner, 
               there's a place for you in the Fame Esports family.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

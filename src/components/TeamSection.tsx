@@ -53,7 +53,7 @@ const TeamSection = () => {
 
   const substitutes = [
     {
-      name: "Chris 'Backup' Wilson",
+      name: "Harsh 'Venom' kumar",
       role: "Flex Player",
       age: 19,
       image: player1,
@@ -63,7 +63,7 @@ const TeamSection = () => {
       icon: Shield,
     },
     {
-      name: "Tyler 'Reserve' Brown",
+      name: "IRFAN 'NEWGOD' KHAN",
       role: "Support",
       age: 20,
       image: player2,
