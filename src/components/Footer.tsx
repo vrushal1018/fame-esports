@@ -120,7 +120,7 @@ const Footer = () => {
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground">Email</p>
-                  <p className="font-medium">contact@fameesports.com</p>
+                  <p className="font-medium">contact@fameesports2021@gmail.com</p>
                 </div>
               </div>
               
@@ -130,11 +130,11 @@ const Footer = () => {
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground">Phone</p>
-                  <p className="font-medium">+1 (555) 123-4567</p>
+                  <p className="font-medium">+91 99748 47220</p>
                 </div>
               </div>
               
-              <div className="flex items-start space-x-4">
+              {/* <div className="flex items-start space-x-4">
                 <div className="w-10 h-10 bg-gaming-yellow/10 rounded-lg flex items-center justify-center mt-1">
                   <MapPin className="w-5 h-5 text-gaming-yellow" />
                 </div>
@@ -145,7 +145,7 @@ const Footer = () => {
                     Los Angeles, CA 90210
                   </p>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
 
@@ -156,22 +156,41 @@ const Footer = () => {
               Get the latest news, match updates, and exclusive content delivered to your inbox.
               Never miss a moment of the action.
             </p>
-            <div className="space-y-4">
-              <div className="flex flex-col sm:flex-row gap-3">
+            <form 
+              action="https://formspree.io/f/xnnzdkjg" 
+              method="POST"
+              className="space-y-4"
+            >
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Your Name"
+                  required
+                  className="input-gaming"
+                />
                 <input
                   type="email"
-                  placeholder="Enter your email"
-                  className="flex-1 input-gaming"
+                  name="email"
+                  placeholder="Your Email"
+                  required
+                  className="input-gaming"
                 />
-                <Button className="btn-gaming group">
-                  <Send className="w-4 h-4 mr-2 group-hover:translate-x-1 transition-transform" />
-                  Subscribe
-                </Button>
               </div>
+              <textarea
+                name="message"
+                placeholder="Your Message (Optional)"
+                rows={3}
+                className="input-gaming w-full resize-none"
+              />
+              <Button type="submit" className="btn-gaming group w-full sm:w-auto">
+                <Send className="w-4 h-4 mr-2 group-hover:translate-x-1 transition-transform" />
+                Subscribe
+              </Button>
               <p className="text-xs text-muted-foreground">
                 By subscribing, you agree to our Privacy Policy and Terms of Service.
               </p>
-            </div>
+            </form>
           </div>
         </div>
 

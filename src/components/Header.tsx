@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Menu, X, Trophy, Users, Calendar, Gamepad2, Award, Table, Tv } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import fameLogo from "@/assets/fame-logo.jpg";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -22,14 +23,14 @@ const Header = () => {
           {/* Logo */}
           <div className="flex items-center space-x-4">
             <div className="relative">
-              <div className="w-12 h-12 bg-gradient-to-r from-primary to-gaming-purple rounded-xl flex items-center justify-center shadow-[var(--shadow-glow)]">
-                <Gamepad2 className="w-7 h-7 text-primary-foreground" />
+              <div className="w-12 h-12 rounded-xl overflow-hidden shadow-[var(--shadow-glow)]">
+                <img
+                  src={fameLogo}
+                  alt="Fame Esports Logo"
+                  className="w-full h-full object-cover"
+                />
               </div>
               <div className="absolute -top-1 -right-1 w-4 h-4 bg-gaming-green rounded-full animate-pulse-glow"></div>
-            </div>
-            <div className="flex flex-col">
-              <span className="text-2xl font-bold gradient-text-primary">Fame Esports</span>
-              <span className="text-xs text-muted-foreground font-medium tracking-wider">PROFESSIONAL GAMING</span>
             </div>
           </div>
 
