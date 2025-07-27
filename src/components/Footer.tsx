@@ -1,7 +1,50 @@
 import { Button } from "@/components/ui/button";
 import { Gamepad2, Twitter, Instagram, Youtube, Twitch, Mail, MapPin, Phone, ArrowRight, Send } from "lucide-react";
+import { useState } from "react";
 
 const Footer = () => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch('https://formspree.io/f/xnnzdkjg', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setShowSuccess(true);
+        setFormData({ name: '', email: '', message: '' });
+        setTimeout(() => setShowSuccess(false), 5000); // Hide after 5 seconds
+      } else {
+        alert('Something went wrong. Please try again.');
+      }
+    } catch (error) {
+      alert('Something went wrong. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
   const socialLinks = [
     { icon: Twitter, href: "#", label: "Twitter" },
     { icon: Instagram, href: "#", label: "Instagram" },
@@ -120,7 +163,7 @@ const Footer = () => {
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground">Email</p>
-                  <p className="font-medium">contact@fameesports2021@gmail.com</p>
+                  <p className="font-medium">fameesports2021@gmail.com</p>
                 </div>
               </div>
               
@@ -157,8 +200,7 @@ const Footer = () => {
               Never miss a moment of the action.
             </p>
             <form 
-              action="https://formspree.io/f/xnnzdkjg" 
-              method="POST"
+              onSubmit={handleSubmit}
               className="space-y-4"
             >
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -167,6 +209,8 @@ const Footer = () => {
                   name="name"
                   placeholder="Your Name"
                   required
+                  value={formData.name}
+                  onChange={handleInputChange}
                   className="input-gaming"
                 />
                 <input
@@ -174,6 +218,8 @@ const Footer = () => {
                   name="email"
                   placeholder="Your Email"
                   required
+                  value={formData.email}
+                  onChange={handleInputChange}
                   className="input-gaming"
                 />
               </div>
@@ -181,16 +227,47 @@ const Footer = () => {
                 name="message"
                 placeholder="Your Message (Optional)"
                 rows={3}
+                value={formData.message}
+                onChange={handleInputChange}
                 className="input-gaming w-full resize-none"
               />
-              <Button type="submit" className="btn-gaming group w-full sm:w-auto">
+              <Button 
+                type="submit" 
+                disabled={isSubmitting}
+                className="btn-gaming group w-full sm:w-auto"
+              >
                 <Send className="w-4 h-4 mr-2 group-hover:translate-x-1 transition-transform" />
-                Subscribe
+                {isSubmitting ? 'Submitting...' : 'Subscribe'}
               </Button>
               <p className="text-xs text-muted-foreground">
                 By subscribing, you agree to our Privacy Policy and Terms of Service.
               </p>
             </form>
+
+            {/* Success Popup */}
+            {showSuccess && (
+              <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+                <div className="gaming-card p-8 max-w-md mx-4 text-center animate-scale-in">
+                  <div className="w-16 h-16 bg-gaming-green/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <div className="w-8 h-8 bg-gaming-green rounded-full flex items-center justify-center">
+                      <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                    </div>
+                  </div>
+                  <h3 className="text-xl font-bold mb-2 gradient-text-primary">Success!</h3>
+                  <p className="text-muted-foreground mb-6">
+                    Thank you for subscribing! We'll keep you updated with the latest news and updates.
+                  </p>
+                  <Button 
+                    onClick={() => setShowSuccess(false)}
+                    className="btn-gaming"
+                  >
+                    Close
+                  </Button>
+                </div>
+              </div>
+            )}
           </div>
         </div>
 
