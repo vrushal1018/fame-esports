@@ -1,0 +1,336 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Fame Esports Professional Design System */
+
+@layer base {
+  :root {
+    /* Professional Dark Theme - Enhanced */
+    --background: 222 14% 4%;
+    --foreground: 210 15% 95%;
+
+    --card: 222 14% 6%;
+    --card-foreground: 210 15% 95%;
+
+    --popover: 222 14% 6%;
+    --popover-foreground: 210 15% 95%;
+
+    /* Professional Blue Primary - Refined */
+    --primary: 217 91% 65%;
+    --primary-foreground: 222 14% 4%;
+
+    /* Professional Secondary - Enhanced */
+    --secondary: 222 14% 10%;
+    --secondary-foreground: 210 15% 95%;
+
+    --muted: 222 14% 10%;
+    --muted-foreground: 215 20% 70%;
+
+    /* Professional Accent - Refined */
+    --accent: 213 27% 88%;
+    --accent-foreground: 222 14% 4%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 15% 95%;
+
+    --border: 222 14% 16%;
+    --input: 222 14% 10%;
+    --ring: 217 91% 65%;
+
+    /* Professional Gaming Colors - Enhanced */
+    --gaming-cyan: 217 91% 65%;
+    --gaming-purple: 234 89% 78%;
+    --gaming-yellow: 43 74% 70%;
+    --gaming-pink: 339 82% 82%;
+    --gaming-green: 142 76% 40%;
+    
+    /* Professional Gradients - Enhanced */
+    --gradient-hero: linear-gradient(135deg, hsl(222 14% 6% / 0.9), hsl(217 91% 65% / 0.08));
+    --gradient-card: linear-gradient(145deg, hsl(222 14% 6%), hsl(222 14% 10%));
+    --gradient-primary: linear-gradient(135deg, hsl(217 91% 65%), hsl(234 89% 78%));
+    --gradient-glow: linear-gradient(135deg, hsl(217 91% 65% / 0.12), hsl(234 89% 78% / 0.12));
+    --gradient-text: linear-gradient(135deg, hsl(217 91% 65%), hsl(234 89% 78%));
+    
+    /* Professional Shadows - Enhanced */
+    --shadow-glow: 0 0 25px hsl(217 91% 65% / 0.18);
+    --shadow-card: 0 8px 32px hsl(222 14% 2% / 0.5);
+    --shadow-intense: 0 0 50px hsl(217 91% 65% / 0.25);
+    --shadow-soft: 0 4px 16px hsl(222 14% 2% / 0.3);
+    
+    /* Professional Animations */
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --transition-fast: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  /* Enhanced Typography */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight;
+  }
+
+  h1 {
+    @apply text-4xl md:text-6xl lg:text-7xl;
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl lg:text-5xl;
+  }
+
+  h3 {
+    @apply text-2xl md:text-3xl;
+  }
+
+  h4 {
+    @apply text-xl md:text-2xl;
+  }
+
+  /* Professional Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-secondary;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-primary/50 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary/70;
+  }
+}
+
+@layer components {
+  /* Professional Gaming Card Styles */
+  .gaming-card {
+    @apply bg-card border border-border/50 rounded-xl shadow-[var(--shadow-card)] 
+           backdrop-blur-sm transition-[var(--transition-smooth)]
+           hover:shadow-[var(--shadow-glow)] hover:border-primary/60
+           hover:scale-[1.02] hover:-translate-y-1;
+  }
+  
+  /* Professional Gaming Button Variants */
+  .btn-gaming {
+    @apply bg-gradient-to-r from-primary to-accent text-primary-foreground 
+           px-8 py-4 rounded-xl font-semibold transition-[var(--transition-smooth)]
+           hover:shadow-[var(--shadow-glow)] hover:scale-105
+           active:scale-95 focus:outline-none focus:ring-2 focus:ring-primary/50;
+  }
+
+  .btn-gaming-secondary {
+    @apply bg-transparent border-2 border-primary text-primary
+           px-8 py-4 rounded-xl font-semibold transition-[var(--transition-smooth)]
+           hover:bg-primary hover:text-primary-foreground hover:shadow-[var(--shadow-glow)]
+           active:scale-95 focus:outline-none focus:ring-2 focus:ring-primary/50;
+  }
+  
+  /* Professional Glow Effects */
+  .glow-cyan {
+    @apply shadow-[0_0_25px_hsl(217_91%_65%_/_0.18)];
+  }
+  
+  .glow-purple {
+    @apply shadow-[0_0_25px_hsl(234_89%_78%_/_0.18)];
+  }
+
+  .glow-yellow {
+    @apply shadow-[0_0_25px_hsl(43_74%_70%_/_0.18)];
+  }
+  
+  /* Professional Gradient Text */
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary via-accent to-gaming-purple bg-clip-text text-transparent;
+  }
+
+  .gradient-text-primary {
+    @apply bg-gradient-to-r from-primary to-gaming-purple bg-clip-text text-transparent;
+  }
+  
+  /* Professional Hero Section */
+  .hero-bg {
+    background: var(--gradient-hero), 
+                radial-gradient(circle at 20% 50%, hsl(217 91% 65% / 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 50%, hsl(234 89% 78% / 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 50% 20%, hsl(43 74% 70% / 0.05) 0%, transparent 50%);
+  }
+
+  /* Professional Section Styles */
+  .section-padding {
+    @apply py-24 px-4;
+  }
+
+  .container-max {
+    @apply max-w-7xl mx-auto;
+  }
+
+  /* Professional Card Hover Effects */
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-[var(--shadow-glow)] 
+           hover:border-primary/60 hover:scale-[1.02] hover:-translate-y-1;
+  }
+
+  /* Professional Image Styles */
+  .image-hover {
+    @apply transition-transform duration-300 hover:scale-105;
+  }
+
+  /* Professional Badge Styles */
+  .badge-gaming {
+    @apply bg-gradient-to-r from-primary to-gaming-purple text-primary-foreground 
+           px-3 py-1 rounded-full text-xs font-semibold;
+  }
+
+  /* Professional Input Styles */
+  .input-gaming {
+    @apply bg-background border border-border rounded-xl px-4 py-3
+           focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary
+           transition-[var(--transition-fast)];
+  }
+}
+
+@layer utilities {
+  /* Enhanced Animation Utilities */
+  .animate-float {
+    animation: float 4s ease-in-out infinite;
+  }
+  
+  .animate-pulse-glow {
+    animation: pulse-glow 3s ease-in-out infinite alternate;
+  }
+  
+  .animate-slide-up {
+    animation: slide-up 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .animate-scale-in {
+    animation: scale-in 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+  }
+  
+  @keyframes pulse-glow {
+    from { 
+      box-shadow: 0 0 25px hsl(217 91% 65% / 0.18);
+      transform: scale(1);
+    }
+    to { 
+      box-shadow: 0 0 35px hsl(217 91% 65% / 0.28);
+      transform: scale(1.05);
+    }
+  }
+  
+  @keyframes slide-up {
+    from { 
+      transform: translateY(40px); 
+      opacity: 0; 
+    }
+    to { 
+      transform: translateY(0); 
+      opacity: 1; 
+    }
+  }
+
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes scale-in {
+    from { 
+      transform: scale(0.9); 
+      opacity: 0; 
+    }
+    to { 
+      transform: scale(1); 
+      opacity: 1; 
+    }
+  }
+
+  /* Professional Spacing Utilities */
+  .section-spacing {
+    @apply py-20 md:py-32;
+  }
+
+  .container-spacing {
+    @apply px-4 md:px-6 lg:px-8;
+  }
+
+  /* Professional Text Utilities */
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .text-pretty {
+    text-wrap: pretty;
+  }
+}
