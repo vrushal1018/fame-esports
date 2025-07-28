@@ -52,9 +52,11 @@ const Header = () => {
 
           {/* Desktop CTA Button */}
           <div className="hidden lg:flex items-center space-x-4">
-            <Button size="sm" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground">
-              <Trophy className="w-4 h-4 mr-2" />
-              Join Team
+            <Button size="sm" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground" asChild>
+              <a href="https://docs.google.com/forms/d/1AVc0Bq6Tg1jx9ethyv634BtlrztAUTCr9nsJNtpHj2M/edit?usp=drivesdk" target="_blank" rel="noopener noreferrer">
+                <Trophy className="w-4 h-4 mr-2" />
+                Join Team
+              </a>
             </Button>
           </div>
 
@@ -86,9 +88,11 @@ const Header = () => {
                 </a>
               ))}
               <div className="pt-4 mt-4 border-t border-border/50">
-                <Button className="w-full btn-gaming">
-                  <Trophy className="w-4 h-4 mr-2" />
-                  Join Team
+                <Button className="w-full btn-gaming" asChild>
+                  <a href="https://docs.google.com/forms/d/1AVc0Bq6Tg1jx9ethyv634BtlrztAUTCr9nsJNtpHj2M/edit?usp=drivesdk" target="_blank" rel="noopener noreferrer">
+                    <Trophy className="w-4 h-4 mr-2" />
+                    Join Team
+                  </a>
                 </Button>
               </div>
             </nav>
