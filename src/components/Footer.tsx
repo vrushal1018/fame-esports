@@ -47,8 +47,8 @@ const Footer = () => {
 
   const socialLinks = [
     { icon: Twitter, href: "#", label: "Twitter" },
-    { icon: Instagram, href: "#", label: "Instagram" },
-    { icon: Youtube, href: "#", label: "YouTube" },
+    { icon: Instagram, href: "http://instagram.com/fameop.in", label: "Instagram" },
+    { icon: Youtube, href: "https://youtube.com/@fameesportsofficial", label: "YouTube" },
     { icon: Twitch, href: "#", label: "Twitch" },
   ];
 

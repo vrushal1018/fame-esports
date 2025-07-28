@@ -12,7 +12,7 @@ const LiveSection = () => {
     time: "3:00 PM EST",
     tournament: "Championship Finals 2024",
     map: "TBD",
-    streamUrl: "https://youtube.com/watch?v=dQw4w9WgXcQ"
+    streamUrl: "https://youtube.com/@fameesportsofficial"
   };
 
   const streamStats = {
@@ -59,9 +59,11 @@ const LiveSection = () => {
                     </div>
                   </div>
                   <div className="flex flex-col sm:flex-row gap-4">
-                    <Button className="btn-gaming flex-1">
-                      <ExternalLink className="w-4 h-4 mr-2" />
-                      Watch on YouTube
+                    <Button className="btn-gaming flex-1" asChild>
+                      <a href="https://youtube.com/@fameesportsofficial" target="_blank" rel="noopener noreferrer">
+                        <ExternalLink className="w-4 h-4 mr-2" />
+                        Watch on YouTube
+                      </a>
                     </Button>
                     <Button variant="outline" className="border-accent text-accent hover:bg-accent hover:text-accent-foreground flex-1">
                       <Tv className="w-4 h-4 mr-2" />
@@ -180,13 +182,11 @@ const LiveSection = () => {
             <span className="gradient-text">Follow Our Streams</span>
           </h3>
           <div className="flex flex-wrap justify-center gap-4">
-            <Button size="lg" className="bg-red-600 hover:bg-red-700 text-white">
-              <Play className="w-5 h-5 mr-2" />
-              YouTube
-            </Button>
-            <Button size="lg" className="bg-purple-600 hover:bg-purple-700 text-white">
-              <Tv className="w-5 h-5 mr-2" />
-              Twitch
+            <Button size="lg" className="bg-red-600 hover:bg-red-700 text-white" asChild>
+              <a href="https://youtube.com/@fameesportsofficial" target="_blank" rel="noopener noreferrer">
+                <Play className="w-5 h-5 mr-2" />
+                YouTube
+              </a>
             </Button>
           </div>
         </div>

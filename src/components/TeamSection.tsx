@@ -53,16 +53,6 @@ const TeamSection = () => {
 
   const substitutes = [
     {
-      name: "Harsh 'Venom' kumar",
-      role: "Flex Player",
-      age: 19,
-      image: player1,
-      description: "Versatile player ready to fill any role needed.",
-      stats: { kills: "1,847", accuracy: "61%", wins: "89" },
-      specialty: "Versatility",
-      icon: Shield,
-    },
-    {
       name: "IRFAN 'NEWGOD' KHAN",
       role: "Support",
       age: 20,

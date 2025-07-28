@@ -39,7 +39,7 @@ const AboutSection = () => {
       achievements: ["7+ Years Experience", "Multiple Tournament Wins", "Industry Leader"],
       socials: {
         twitter: "#",
-        instagram: "#",
+        instagram: "https://www.instagram.com/harshhh____.15/profilecard/?igsh=MW41Y3ZjenBiZDVlOA==",
         linkedin: "#",
       },
     },
@@ -176,15 +176,21 @@ const AboutSection = () => {
                       
                       {/* Social Links */}
                       <div className="flex gap-3">
-                        <Button size="sm" variant="outline" className="border-primary/30 text-primary hover:bg-primary hover:text-primary-foreground hover:border-primary">
-                          <Twitter className="w-4 h-4" />
-                        </Button>
-                        <Button size="sm" variant="outline" className="border-gaming-purple/30 text-gaming-purple hover:bg-gaming-purple hover:text-primary-foreground hover:border-gaming-purple">
-                          <Instagram className="w-4 h-4" />
-                        </Button>
-                        <Button size="sm" variant="outline" className="border-gaming-yellow/30 text-gaming-yellow hover:bg-gaming-yellow hover:text-background hover:border-gaming-yellow">
-                          <Linkedin className="w-4 h-4" />
-                        </Button>
+                        <a href={member.socials.twitter} target="_blank" rel="noopener noreferrer">
+                          <Button size="sm" variant="outline" className="border-primary/30 text-primary hover:bg-primary hover:text-primary-foreground hover:border-primary">
+                            <Twitter className="w-4 h-4" />
+                          </Button>
+                        </a>
+                        <a href={member.socials.instagram} target="_blank" rel="noopener noreferrer">
+                          <Button size="sm" variant="outline" className="border-gaming-purple/30 text-gaming-purple hover:bg-gaming-purple hover:text-primary-foreground hover:border-gaming-purple">
+                            <Instagram className="w-4 h-4" />
+                          </Button>
+                        </a>
+                        <a href={member.socials.linkedin} target="_blank" rel="noopener noreferrer">
+                          <Button size="sm" variant="outline" className="border-gaming-yellow/30 text-gaming-yellow hover:bg-gaming-yellow hover:text-background hover:border-gaming-yellow">
+                            <Linkedin className="w-4 h-4" />
+                          </Button>
+                        </a>
                       </div>
                     </div>
                   </div>
