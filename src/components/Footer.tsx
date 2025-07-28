@@ -46,7 +46,7 @@ const Footer = () => {
   };
 
   const socialLinks = [
-    { icon: Twitter, href: "#", label: "Twitter" },
+    { icon: Twitter, href: "https://x.com/fameesports2021?s=21", label: "Twitter" },
     { icon: Instagram, href: "http://instagram.com/fameop.in", label: "Instagram" },
     { icon: Youtube, href: "https://youtube.com/@fameesportsofficial", label: "YouTube" },
     { icon: Twitch, href: "#", label: "Twitch" },
@@ -116,14 +116,20 @@ const Footer = () => {
             
             <div className="flex space-x-3">
               {socialLinks.map((social, index) => (
-                <Button
+                <a
                   key={index}
-                  size="sm"
-                  variant="outline"
-                  className="border-primary/30 text-primary hover:bg-primary hover:text-primary-foreground hover:border-primary transition-[var(--transition-smooth)]"
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
-                  <social.icon className="w-4 h-4" />
-                </Button>
+                  <Button
+                    size="sm"
+                    variant="outline"
+                    className="border-primary/30 text-primary hover:bg-primary hover:text-primary-foreground hover:border-primary transition-[var(--transition-smooth)]"
+                  >
+                    <social.icon className="w-4 h-4" />
+                  </Button>
+                </a>
               ))}
             </div>
           </div>
