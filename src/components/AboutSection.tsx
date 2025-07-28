@@ -38,7 +38,7 @@ const AboutSection = () => {
       ],
       achievements: ["7+ Years Experience", "Multiple Tournament Wins", "Industry Leader"],
       socials: {
-        twitter: "#",
+        twitter: "https://x.com/harsh11505?s=21",
         instagram: "https://www.instagram.com/harshhh____.15/profilecard/?igsh=MW41Y3ZjenBiZDVlOA==",
         linkedin: "#",
       },
