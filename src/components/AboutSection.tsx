@@ -19,7 +19,7 @@ const AboutSection = () => {
       achievements: ["15+ Tournaments Managed", "50+ Players Developed", "Industry Expert"],
       socials: {
         twitter: "#",
-        instagram: "#",
+        instagram: "https://www.instagram.com/avaniishghavvii",
         linkedin: "#",
       },
     },

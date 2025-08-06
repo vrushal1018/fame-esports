@@ -1,199 +1,142 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { Trophy, TrendingUp, TrendingDown, Minus, RefreshCw } from "lucide-react";
+import { Trophy, Medal, Star, Award, ExternalLink, Users, Calendar, Target, Sparkles, Zap, Crown } from "lucide-react";
 
 const PointsTableSection = () => {
-  const leagueStandings = [
-    { rank: 1, team: "Elite Gaming", played: 12, won: 10, lost: 2, points: 30, change: "up" },
-    { rank: 2, team: "Fame Esports", played: 12, won: 9, lost: 3, points: 27, change: "up" },
-    { rank: 3, team: "Apex Legends", played: 12, won: 8, lost: 4, points: 24, change: "same" },
-    { rank: 4, team: "Thunder Bolts", played: 12, won: 7, lost: 5, points: 21, change: "down" },
-    { rank: 5, team: "Digital Dynamos", played: 12, won: 6, lost: 6, points: 18, change: "up" },
-    { rank: 6, team: "Cyber Knights", played: 12, won: 5, lost: 7, points: 15, change: "down" },
-    { rank: 7, team: "Phoenix Rising", played: 12, won: 4, lost: 8, points: 12, change: "down" },
-    { rank: 8, team: "Storm Breakers", played: 12, won: 3, lost: 9, points: 9, change: "same" },
-  ];
-
-  const recentMatches = [
-    { date: "Nov 20", opponent: "Elite Gaming", result: "W", score: "16-12", map: "Dust2" },
-    { date: "Nov 17", opponent: "Thunder Bolts", result: "W", score: "16-8", map: "Mirage" },
-    { date: "Nov 14", opponent: "Apex Legends", result: "L", score: "14-16", map: "Inferno" },
-    { date: "Nov 11", opponent: "Digital Dynamos", result: "W", score: "16-10", map: "Cache" },
-    { date: "Nov 8", opponent: "Cyber Knights", result: "W", score: "16-6", map: "Overpass" },
-  ];
-
-  const getTrendIcon = (change) => {
-    switch (change) {
-      case "up": return <TrendingUp className="w-4 h-4 text-gaming-green" />;
-      case "down": return <TrendingDown className="w-4 h-4 text-destructive" />;
-      default: return <Minus className="w-4 h-4 text-muted-foreground" />;
-    }
-  };
-
-  const getRankBadgeColor = (rank) => {
-    if (rank === 1) return "bg-gaming-yellow text-background";
-    if (rank === 2) return "bg-primary text-primary-foreground";
-    if (rank === 3) return "bg-accent text-accent-foreground";
-    return "bg-secondary text-secondary-foreground";
-  };
-
   return (
-    <section id="points" className="py-20 bg-secondary/20">
-      <div className="container mx-auto px-4">
+    <section id="points" className="py-20 bg-gradient-to-br from-background via-secondary/20 to-background relative overflow-hidden">
+      {/* Animated Background Elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-primary/20 to-accent/20 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-tr from-gaming-green/20 to-yellow-500/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-purple-500/10 to-blue-500/10 rounded-full blur-3xl animate-pulse delay-500"></div>
+      </div>
+
+      <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            <span className="gradient-text">Points Table</span>
+          <div className="flex items-center justify-center mb-6">
+            <div className="relative">
+              <Crown className="w-12 h-12 text-yellow-500 animate-bounce" />
+              <Sparkles className="w-6 h-6 text-yellow-400 absolute -top-2 -right-2 animate-ping" />
+            </div>
+          </div>
+          <h2 className="text-4xl md:text-6xl font-bold mb-6">
+            <span className="bg-gradient-to-r from-primary via-accent to-gaming-green bg-clip-text text-transparent">
+              Tournament Data Hub
+            </span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Current league standings and recent match results for Fame Esports.
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            Dive into our comprehensive tournament archives and discover the journey of champions
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {/* League Standings */}
-          <div className="lg:col-span-2">
-            <Card className="gaming-card">
-              <CardHeader className="flex flex-row items-center justify-between">
-                <CardTitle className="text-2xl font-bold gradient-text">
-                  League Standings
-                </CardTitle>
-                <Button size="sm" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground">
-                  <RefreshCw className="w-4 h-4 mr-2" />
-                  Refresh
-                </Button>
-              </CardHeader>
-              <CardContent>
-                <Table>
-                  <TableHeader>
-                    <TableRow className="border-border">
-                      <TableHead className="text-primary">Rank</TableHead>
-                      <TableHead className="text-primary">Team</TableHead>
-                      <TableHead className="text-center text-primary">P</TableHead>
-                      <TableHead className="text-center text-primary">W</TableHead>
-                      <TableHead className="text-center text-primary">L</TableHead>
-                      <TableHead className="text-center text-primary">Pts</TableHead>
-                      <TableHead className="text-center text-primary">Change</TableHead>
-                    </TableRow>
-                  </TableHeader>
-                  <TableBody>
-                    {leagueStandings.map((team) => (
-                      <TableRow 
-                        key={team.rank} 
-                        className={`border-border hover:bg-secondary/50 transition-colors ${
-                          team.team === "Fame Esports" ? "bg-primary/10 border-primary/30" : ""
-                        }`}
-                      >
-                        <TableCell>
-                          <Badge className={getRankBadgeColor(team.rank)}>
-                            {team.rank}
-                          </Badge>
-                        </TableCell>
-                        <TableCell className="font-semibold">
-                          {team.team === "Fame Esports" ? (
-                            <span className="text-primary font-bold">{team.team}</span>
-                          ) : (
-                            team.team
-                          )}
-                        </TableCell>
-                        <TableCell className="text-center">{team.played}</TableCell>
-                        <TableCell className="text-center text-gaming-green font-medium">
-                          {team.won}
-                        </TableCell>
-                        <TableCell className="text-center text-destructive font-medium">
-                          {team.lost}
-                        </TableCell>
-                        <TableCell className="text-center font-bold text-accent">
-                          {team.points}
-                        </TableCell>
-                        <TableCell className="text-center">
-                          {getTrendIcon(team.change)}
-                        </TableCell>
-                      </TableRow>
-                    ))}
-                  </TableBody>
-                </Table>
-              </CardContent>
-            </Card>
-          </div>
+        {/* Mesmerizing Tournament Data Access Card */}
+        <div className="max-w-4xl mx-auto">
+          <Card className="gaming-card relative overflow-hidden border-0 bg-gradient-to-br from-background/80 via-secondary/20 to-background/80 backdrop-blur-sm shadow-2xl">
+            {/* Animated Border */}
+            <div className="absolute inset-0 bg-gradient-to-r from-primary via-accent to-gaming-green rounded-lg p-[2px] animate-pulse">
+              <div className="absolute inset-0 bg-gradient-to-r from-primary via-accent to-gaming-green rounded-lg opacity-0 animate-pulse"></div>
+            </div>
+            
+            {/* Floating Icons */}
+            <div className="absolute top-4 right-4">
+              <Trophy className="w-8 h-8 text-yellow-500 animate-bounce delay-100" />
+            </div>
+            <div className="absolute bottom-4 left-4">
+              <Medal className="w-6 h-6 text-blue-500 animate-bounce delay-300" />
+            </div>
+            <div className="absolute top-1/2 left-4 transform -translate-y-1/2">
+              <Star className="w-5 h-5 text-purple-500 animate-pulse delay-500" />
+            </div>
+            <div className="absolute top-1/2 right-4 transform -translate-y-1/2">
+              <Award className="w-5 h-5 text-orange-500 animate-pulse delay-700" />
+            </div>
 
-          {/* Recent Matches & Stats */}
-          <div className="space-y-6">
-            {/* Team Stats */}
-            <Card className="gaming-card">
-              <CardHeader>
-                <CardTitle className="text-xl font-bold gradient-text flex items-center">
-                  <Trophy className="w-5 h-5 mr-2" />
-                  Team Stats
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="flex justify-between items-center">
-                  <span className="text-muted-foreground">Current Rank</span>
-                  <Badge className="bg-primary text-primary-foreground text-lg px-3 py-1">
-                    #2
-                  </Badge>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-muted-foreground">Win Rate</span>
-                  <span className="text-gaming-green font-bold text-lg">75%</span>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-muted-foreground">Total Points</span>
-                  <span className="text-accent font-bold text-lg">27</span>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-muted-foreground">Form (Last 5)</span>
-                  <div className="flex gap-1">
-                    <div className="w-3 h-3 bg-gaming-green rounded-full"></div>
-                    <div className="w-3 h-3 bg-gaming-green rounded-full"></div>
-                    <div className="w-3 h-3 bg-destructive rounded-full"></div>
-                    <div className="w-3 h-3 bg-gaming-green rounded-full"></div>
-                    <div className="w-3 h-3 bg-gaming-green rounded-full"></div>
+            <div className="relative bg-background/90 backdrop-blur-sm rounded-lg p-8">
+              <CardHeader className="text-center pb-8">
+                <div className="flex items-center justify-center mb-6">
+                  <div className="relative">
+                    <div className="w-20 h-20 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center animate-pulse">
+                      <ExternalLink className="w-10 h-10 text-white" />
+                    </div>
+                    <div className="absolute -top-2 -right-2 w-6 h-6 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-full flex items-center justify-center">
+                      <Sparkles className="w-3 h-3 text-white" />
+                    </div>
                   </div>
                 </div>
-              </CardContent>
-            </Card>
-
-            {/* Recent Matches */}
-            <Card className="gaming-card">
-              <CardHeader>
-                <CardTitle className="text-xl font-bold gradient-text">
-                  Recent Matches
+                <CardTitle className="text-3xl md:text-4xl font-bold mb-4">
+                  <span className="bg-gradient-to-r from-primary via-accent to-gaming-green bg-clip-text text-transparent">
+                    Access Tournament Data
+                  </span>
                 </CardTitle>
+                <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+                  Explore our comprehensive tournament archives featuring official rankings, match results, 
+                  performance statistics, and championship history across all competitive events.
+                </p>
               </CardHeader>
-              <CardContent>
-                <div className="space-y-3">
-                  {recentMatches.map((match, index) => (
-                    <div 
-                      key={index} 
-                      className="flex items-center justify-between p-3 rounded-lg bg-secondary/30 hover:bg-secondary/50 transition-colors"
-                    >
-                      <div>
-                        <div className="font-semibold text-sm">{match.opponent}</div>
-                        <div className="text-xs text-muted-foreground">{match.date} • {match.map}</div>
-                      </div>
-                      <div className="text-right">
-                        <Badge 
-                          className={`${
-                            match.result === "W" 
-                              ? "bg-gaming-green text-background" 
-                              : "bg-destructive text-destructive-foreground"
-                          } mb-1`}
-                        >
-                          {match.result}
-                        </Badge>
-                        <div className="text-xs font-mono">{match.score}</div>
-                      </div>
+
+              <CardContent className="space-y-8">
+                {/* Feature Grid */}
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+                  <div className="text-center p-4 rounded-lg bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/20 hover:border-primary/40 transition-all duration-300 hover:scale-105">
+                    <div className="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center mx-auto mb-3">
+                      <Trophy className="w-6 h-6 text-white" />
                     </div>
-                  ))}
+                    <div className="font-semibold text-sm">Official Rankings</div>
+                  </div>
+                  <div className="text-center p-4 rounded-lg bg-gradient-to-br from-accent/10 to-accent/5 border border-accent/20 hover:border-accent/40 transition-all duration-300 hover:scale-105">
+                    <div className="w-12 h-12 bg-gradient-to-br from-accent to-gaming-green rounded-full flex items-center justify-center mx-auto mb-3">
+                      <Medal className="w-6 h-6 text-white" />
+                    </div>
+                    <div className="font-semibold text-sm">Tournament Results</div>
+                  </div>
+                  <div className="text-center p-4 rounded-lg bg-gradient-to-br from-gaming-green/10 to-gaming-green/5 border border-gaming-green/20 hover:border-gaming-green/40 transition-all duration-300 hover:scale-105">
+                    <div className="w-12 h-12 bg-gradient-to-br from-gaming-green to-yellow-500 rounded-full flex items-center justify-center mx-auto mb-3">
+                      <Star className="w-6 h-6 text-white" />
+                    </div>
+                    <div className="font-semibold text-sm">Performance Stats</div>
+                  </div>
+                  <div className="text-center p-4 rounded-lg bg-gradient-to-br from-yellow-500/10 to-yellow-500/5 border border-yellow-500/20 hover:border-yellow-500/40 transition-all duration-300 hover:scale-105">
+                    <div className="w-12 h-12 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-full flex items-center justify-center mx-auto mb-3">
+                      <Target className="w-6 h-6 text-white" />
+                    </div>
+                    <div className="font-semibold text-sm">Match History</div>
+                  </div>
+                </div>
+
+                {/* Main Access Button */}
+                <div className="text-center">
+                  <Button 
+                    size="lg" 
+                    className="relative overflow-hidden group btn-gaming text-xl px-16 py-8 bg-gradient-to-r from-primary via-accent to-gaming-green hover:from-primary/90 hover:via-accent/90 hover:to-gaming-green/90 transition-all duration-500 transform hover:scale-105 hover:shadow-2xl" 
+                    asChild
+                  >
+                    <a 
+                      href="https://drive.google.com/drive/folders/1vNTzdYgfi8rpC4aCYgT6zuaYSAs39Zyz" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-center"
+                    >
+                      <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                      <Users className="w-6 h-6 mr-3 animate-pulse" />
+                      <span className="relative z-10">Access Tournament Archives</span>
+                      <Zap className="w-5 h-5 ml-3 animate-pulse delay-300" />
+                    </a>
+                  </Button>
+                </div>
+
+                {/* Additional Info */}
+                <div className="text-center text-sm text-muted-foreground">
+                  <p>📊 Real-time data • 🏆 Championship records • 📈 Performance analytics • 🎯 Match insights</p>
                 </div>
               </CardContent>
-            </Card>
-          </div>
+            </div>
+          </Card>
         </div>
       </div>
+
+
     </section>
   );
 };

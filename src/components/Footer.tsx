@@ -68,16 +68,6 @@ const Footer = () => {
       color: "text-primary"
     },
     {
-      title: "Support",
-      links: [
-        { name: "Help Center", href: "#" },
-        { name: "Contact Us", href: "#" },
-        { name: "Privacy Policy", href: "#" },
-        { name: "Terms of Service", href: "#" },
-      ],
-      color: "text-accent"
-    },
-    {
       title: "Resources",
       links: [
         { name: "Blog", href: "#" },
@@ -243,7 +233,7 @@ const Footer = () => {
                 className="btn-gaming group w-full sm:w-auto"
               >
                 <Send className="w-4 h-4 mr-2 group-hover:translate-x-1 transition-transform" />
-                {isSubmitting ? 'Submitting...' : 'Subscribe'}
+                {isSubmitting ? 'Submitting...' : 'Send'}
               </Button>
               <p className="text-xs text-muted-foreground">
                 By subscribing, you agree to our Privacy Policy and Terms of Service.
